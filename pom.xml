@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.3.5</version>
+		<relativePath/>
+		<!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.langchain</groupId>
+	<artifactId>langchain-chatbot</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>langchain-chatbot</name>
+	<description>langchain-chatbot-POC</description>
+	<url/>
+	<licenses>
+		<license/>
+	</licenses>
+	<developers>
+		<developer/>
+	</developers>
+	<scm>
+		<connection/>
+		<developerConnection/>
+		<tag/>
+		<url/>
+	</scm>
+	<properties>
+		<java.version>21</java.version>
+		<langchain4j.version>1.1.0</langchain4j.version>
+		<!-- Ensure this matches your other langchain4j modules -->
+		<!-- This version is for the direct Google Cloud Vertex AI client library, often not strictly needed
+             if langchain4j-vertex-ai provides all the necessary abstractions. Kept for reference. -->
+		<vertex-ai-gemini.version>1.1.0-beta7</vertex-ai-gemini.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!-- LangChain4j Core Library: Provides core abstractions for LLMs -->
+		<dependency>
+			<groupId>dev.langchain4j</groupId>
+			<artifactId>langchain4j</artifactId>
+			<version>1.0.0-alpha1</version>
+		</dependency>
+		<!-- LangChain4j Integration for Vertex AI (includes Gemini support) -->
+		<dependency>
+			<groupId>dev.langchain4j</groupId>
+			<artifactId>langchain4j-vertex-ai-gemini</artifactId>
+			<version>1.0.0-alpha1</version>
+		</dependency>
+		<!-- LangChain4j Integration for Vertex AI (includes Gemini support) -->
+		<dependency>
+			<groupId>dev.langchain4j</groupId>
+			<artifactId>langchain4j-vertex-ai</artifactId>
+			<version>1.0.0-alpha1</version>
+		</dependency>
+		<!-- LangChain4j Tools Module: Enables defining Java methods as "tools" for LLMs -->
+		<!--dependency>
+			<groupId>dev.langchain4j</groupId>
+			<artifactId>langchain4j-tools</artifactId>
+			<version>${langchain4j.version}</version>
+		</dependency-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- Spring Boot DevTools: (Optional) Provides hot-reloading for faster local development -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+		<!-- SLF4J Simple Logger: (Optional) A basic logger for console output, useful in containers -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>2.0.13</version>
+			<scope>runtime</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+</project>
