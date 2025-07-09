@@ -54,8 +54,15 @@ class MultiTools {
     }
 
     @Tool("Exchange an order")
-    String exchangeOrder(@P("Order Number") String orderNumber, @P("The product that has to be exchanged") String productTobeExchanged) {
-        return "Your order".concat(orderNumber).concat("is exchanged with").concat(productTobeExchanged).concat("and will delivered to on next week");
+    String exchangeOrder(@P("Order Number") String orderNumber, @P(value = "The product that has to be exchanged", required = false) String productTobeExchanged) {
+        String is_exchanged_with = "Your order".concat(orderNumber).concat("is exchanged with").concat(productTobeExchanged != null ? productTobeExchanged : "IronBox")
+                .concat("and will delivered to on next week");
+        if (orderNumber.equals("EE053") && productTobeExchanged.equals("IronBox")) {
+            return is_exchanged_with;
+        } else if (orderNumber.equals("EE053")) {
+            return "I see two products, Please tell us the product that has to be exchanged";
+        }
+        return is_exchanged_with;
     }
 
     @Tool("Replace an order")
