@@ -15,7 +15,7 @@ import java.util.List;
 @SpringBootApplication
 public class ChatApplication {
 
-  @Value("${NAME:Sharon!!}")
+  @Value("${NAME:Sharon!!!}")
   String name;
 
   @RestController
